@@ -3,39 +3,26 @@ class Product {
     String pname;
     double price;
 
-    // Constructor
-    Product(int pcode, String pname, double price) {
-        this.pcode = pcode;
-        this.pname = pname;
-        this.price = price;
+Product(int pcode,String pname,double price){
+    this.pcode=pcode;
+    this.pname=pname;
+    this.price=price;
+}
+public static void main(String[] args){
+    Product p1=new Product(001,"Pen",10);
+    Product p2=new Product(002,"Notebook",50);
+    Product p3=new Product(003,"Pencil",5);
+
+    Product lowest=p1;
+    if(p2.price<lowest.price){
+        lowest=p2;
     }
-
-    // Method to display product details
-    void display() {
-        System.out.println("Product Code: " + pcode);
-        System.out.println("Product Name: " + pname);
-        System.out.println("Price: " + price);
+    if(p3.price<lowest.price){
+        lowest=p3;
     }
-
-    public static void main(String[] args) {
-        // Creating 3 product objects
-        Product p1 = new Product(101, "Laptop", 55000);
-        Product p2 = new Product(102, "Mobile", 30000);
-        Product p3 = new Product(103, "Tablet", 20000);
-
-        // Assume p1 has the lowest price initially
-        Product lowest = p1;
-
-        // Compare prices
-        if (p2.price < lowest.price) {
-            lowest = p2;
-        }
-        if (p3.price < lowest.price) {
-            lowest = p3;
-        }
-
-        // Display product with lowest price
-        System.out.println("Product with the lowest price:");
-        lowest.display();
-    }
+    System.out.println("Product with lowest price:");
+    System.out.println("Code:"+lowest.pcode);
+    System.out.println("Name:"+lowest.pname);
+    System.out.println("Price"+lowest.price);
+}
 }
